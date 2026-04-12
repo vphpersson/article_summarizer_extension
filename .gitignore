@@ -1,0 +1,23 @@
+# Ignore everything
+*
+
+# Project root
+!.gitignore
+!Makefile
+
+# Extension build config
+!extension/
+!extension/package.json
+!extension/package-lock.json
+!extension/tsconfig.json
+!extension/tsconfig.node.json
+!extension/build.mts
+
+# Extension source
+!extension/src/
+!extension/src/manifest.json
+!extension/src/icon.svg
+!extension/src/sidebar/
+!extension/src/sidebar/*
+!extension/src/content/
+!extension/src/content/*

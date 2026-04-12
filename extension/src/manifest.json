@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Article Summarizer",
+  "version": "1.0",
+  "description": "Extract article content and summarize with Gemini",
+  "applications": {
+    "gecko": {
+      "id": "article_summarizer@altshift.se"
+    }
+  },
+  "permissions": [
+    "<all_urls>",
+    "clipboardWrite"
+  ],
+  "icons": {
+    "48": "icon.svg",
+    "96": "icon.svg"
+  },
+  "sidebar_action": {
+    "default_title": "Article Summarizer",
+    "default_panel": "sidebar/sidebar.html",
+    "default_icon": "icon.svg"
+  }
+}

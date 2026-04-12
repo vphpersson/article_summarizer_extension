@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Article Summarizer</h2>
+    <button id="extract-btn">Extract Content</button>
+    <textarea id="content" placeholder="Extracted content will appear here..."></textarea>
+    <div class="language-select">
+      <label for="language">Language:</label>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="sv">Swedish</option>
+      </select>
+    </div>
+    <button id="summarize-btn" disabled>Summarize</button>
+    <div id="status"></div>
+  </div>
+  <script type="module" src="sidebar.js"></script>
+</body>
+</html>
