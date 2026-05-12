@@ -11,8 +11,23 @@ function htmlToText(html: string): string {
     .join("\n\n");
 }
 
+function pruneInvisible(original: Element, clone: Element): void {
+  const origChildren = Array.from(original.children);
+  const cloneChildren = Array.from(clone.children);
+  for (let i = origChildren.length - 1; i >= 0; i--) {
+    if (!origChildren[i].checkVisibility()) {
+      cloneChildren[i].remove();
+    } else {
+      pruneInvisible(origChildren[i], cloneChildren[i]);
+    }
+  }
+}
+
 try {
   const clone = document.cloneNode(true) as Document;
+  if (document.documentElement && clone.documentElement) {
+    pruneInvisible(document.documentElement, clone.documentElement);
+  }
   const article = new Readability(clone).parse();
 
   if (article) {
