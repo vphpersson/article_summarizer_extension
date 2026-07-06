@@ -29,6 +29,13 @@ await esbuild.build({
   format: "iife",
 });
 
+await esbuild.build({
+  ...commonOptions,
+  entryPoints: ["src/background.ts"],
+  outfile: path.join(distDir, "background.js"),
+  format: "iife",
+});
+
 const staticFiles: [string, string][] = [
   ["src/manifest.json", path.join(distDir, "manifest.json")],
   ["src/sidebar/sidebar.html", path.join(distDir, "sidebar", "sidebar.html")],

@@ -16,6 +16,13 @@
     "48": "icon.svg",
     "96": "icon.svg"
   },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_title": "Summarize in Gemini",
+    "default_icon": "icon.svg"
+  },
   "sidebar_action": {
     "default_title": "Article Summarizer",
     "default_panel": "sidebar/sidebar.html",
