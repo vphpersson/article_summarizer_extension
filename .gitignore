@@ -15,7 +15,7 @@
 
 # Extension source
 !extension/src/
-!extension/src/background.ts
+!extension/src/*.ts
 !extension/src/manifest.json
 !extension/src/icon.svg
 !extension/src/sidebar/

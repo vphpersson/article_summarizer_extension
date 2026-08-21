@@ -31,6 +31,13 @@ await esbuild.build({
 
 await esbuild.build({
   ...commonOptions,
+  entryPoints: ["src/content/inject_source.ts"],
+  outfile: path.join(distDir, "content", "inject_source.js"),
+  format: "iife",
+});
+
+await esbuild.build({
+  ...commonOptions,
   entryPoints: ["src/background.ts"],
   outfile: path.join(distDir, "background.js"),
   format: "iife",

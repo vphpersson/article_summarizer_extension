@@ -1,4 +1,5 @@
 import { Readability } from "@mozilla/readability";
+import { extractProvenance } from "./extract_provenance";
 
 function htmlToText(html: string): string {
   const div = document.createElement("div");
@@ -178,7 +179,15 @@ function extract(): { title: string; text: string } {
 
 try {
   const { title, text } = extract();
-  browser.runtime.sendMessage({ type: "extracted-content", title, text });
+  // The provenance is read here, on the article itself, because this is the
+  // only point at which it is knowable: what follows is a summary pasted into
+  // a Gemini conversation, which carries nothing of where it came from.
+  browser.runtime.sendMessage({
+    type: "extracted-content",
+    title,
+    text,
+    provenance: extractProvenance(title),
+  });
 } catch (err) {
   browser.runtime.sendMessage({
     type: "extraction-error",
