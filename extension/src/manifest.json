@@ -27,5 +27,12 @@
     "default_title": "Article Summarizer",
     "default_panel": "sidebar/sidebar.html",
     "default_icon": "icon.svg"
+  },
+  "commands": {
+      "_execute_browser_action": {
+          "suggested_key": {
+              "default": "Alt+Shift+M"
+          }
+      }
   }
 }
