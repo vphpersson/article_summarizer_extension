@@ -6,7 +6,7 @@
     "build": "tsc --noEmit && node build.mts"
   },
   "dependencies": {
-    "@altshiftab/utils": "^0.0.11",
+    "@altshiftab/utils": "^0.0.12",
     "@mozilla/readability": "^0.5.0"
   },
   "devDependencies": {
