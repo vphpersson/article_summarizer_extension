@@ -14,7 +14,10 @@ const metaSelectors = [
   'meta[name="pubdate"]',
   'meta[name="publish_date"]',
   'meta[name="sailthru.date"]',
+  // Al Jazeera's spelling, the reverse of Schema.org's.
+  'meta[name="publishedDate"]',
   'meta[property="article:modified_time"]',
+  'meta[name="lastDate"]',
 ];
 
 const timeSelectors = [
@@ -75,9 +78,13 @@ function fromTimeElements(): string {
 }
 
 function fromUrlPath(): string {
-  const match = location.pathname.match(/\/(\d{4})\/(\d{2})\/(\d{2})(?:\/|$)/);
+  // A single-digit month or day, as Al Jazeera writes them (/2026/6/9/), padded
+  // so the date still parses.
+  const match = location.pathname.match(/\/(\d{4})\/(\d{1,2})\/(\d{1,2})(?:\/|$)/);
   if (!match) return "";
-  return toIsoString(`${match[1]}-${match[2]}-${match[3]}`);
+  return toIsoString(
+    `${match[1]}-${match[2].padStart(2, "0")}-${match[3].padStart(2, "0")}`,
+  );
 }
 
 function extractPublishedAt(): string {
